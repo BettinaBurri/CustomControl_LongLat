@@ -1,0 +1,43 @@
+LED {
+    -fx-padding: 5;
+    -fx-background-color: white;
+}
+
+.led {
+    -led-color: rgb(255, 0, 0);
+}
+
+.led .highlight {
+    -fx-fill: radial-gradient(center 15% 15%, radius 50%,
+                              rgba(200, 200, 200, 0.8)   0%,
+                              transparent              100%);
+}
+
+.led .mainOn {
+    -fx-fill: linear-gradient(from 15% 15% to 85% 85%,
+                              derive(-led-color, -23%)  0%,
+                              derive(-led-color, -50%) 49%,
+                              -led-color              100%);
+// effects werden besser  in Java gesetzt
+//   -fx-effect: dropshadow(gaussian, -led-color, 80.0, 0.0, 0.0, 0.0);
+}
+
+.led .mainOff {
+    -fx-fill: linear-gradient(from 15% 15% to 85% 85%,
+                              derive(-led-color, -80%)  0%,
+                              derive(-led-color, -87%) 50%,
+                              derive(-led-color, -80) 100%);
+//  effects werden besser  in Java gesetzt
+//    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.65), 8, 0, 0, 0);
+}
+
+.led .frame {
+    -fx-fill: linear-gradient(from 15% 15% to 85% 85%,
+                              rgba(20, 20, 20, 0.65)     0%,
+                              rgba(20, 20, 20, 0.65)     15%,
+                              rgba(41, 41, 41, 0.65)     26%,
+                              rgba(41, 41, 41, 0.65)     28%,
+                              rgba(200, 200, 200, 0.39)  85%,
+                              rgba(200, 200, 200, 0.35) 100%);
+}
+

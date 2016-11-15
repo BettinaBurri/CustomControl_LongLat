@@ -1,0 +1,16 @@
+.myControl {
+    -fx-padding: 10;
+    -base-color: rgb(2, 138, 204);
+    -fx-background-color: derive(-base-color, 80%);
+}
+
+.myControl .drawingPane {
+    -fx-background-color: -base-color;
+}
+
+.myControl .display {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 32;
+    -fx-fill: derive(-base-color, 80%);
+}
+

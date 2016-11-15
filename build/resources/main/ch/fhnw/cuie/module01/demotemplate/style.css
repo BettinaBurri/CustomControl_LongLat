@@ -1,0 +1,17 @@
+.button {
+    -fx-text-fill: orangered;
+    -fx-font-family: 'DS-Digital';
+    -fx-background-radius: 1000px;
+}
+.button:hover {
+    -fx-text-fill: #940909;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 0);
+    -fx-padding: 8px;
+    -fx-font-size: 1.3em;
+}
+.button:pressed{
+    -fx-text-fill: #b646c3;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 0);
+    -fx-padding: 6px;
+    -fx-font-size: 1.1em;
+}

@@ -1,0 +1,25 @@
+NumberRange {
+    -fx-padding: 5;
+    -fx-background-color: rgb(12, 12, 12);
+}
+
+.numberRange .backgroundCircle {
+    -fx-stroke-width: 30;
+    -fx-stroke: rgb(40, 40, 40);
+    -fx-fill: transparent;
+}
+
+.numberRange .bar {
+    -fx-stroke-width: 30;
+    -fx-stroke: rgb(58, 233, 6);
+    -fx-stroke-line-cap: round;
+    -fx-fill: transparent;
+}
+
+.numberRange .thumb {
+    -fx-fill: rgb(40, 40, 40);
+    -fx-cursor: hand;
+
+}
+
+

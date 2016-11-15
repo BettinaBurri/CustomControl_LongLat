@@ -1,0 +1,64 @@
+Horizon {
+    -fx-padding: 5;
+    -fx-background-color: azure;
+}
+
+.horizon .triangle {
+    -fx-fill: #F37176;
+    -fx-stroke: #DA3E50;
+    -fx-stroke-width: 2;
+}
+
+.horizon .plane Line{
+    -fx-stroke: #F05258;
+    -fx-stroke-width: 2;
+}
+
+.horizon .plane Circle{
+    -fx-fill: transparent;
+    -fx-stroke: #F05258;
+    -fx-stroke-width: 2;
+}
+
+.horizon .ticks .defaultTick{
+    -fx-stroke: #FFFFFF;
+    -fx-stroke-width: 2;
+}
+
+.horizon .ticks .highlightedTick{
+    -fx-stroke: #DD3246;
+    -fx-stroke-width: 2;
+}
+
+.horizon .measures {
+
+}
+
+.horizon .ground {
+    -fx-scale-shape: true;
+    -fx-shape: "M300,150 C300,232.842712 232.842712,300 150,300 C67.1572875,300 0,232.842712 0,150 L300,150 Z";
+    -fx-background-color: #3C4439;
+}
+
+.horizon .sky {
+    -fx-fill: #8CD9F1;
+    -fx-stroke: #A1A1A1;
+    -fx-stroke-width: 2;
+}
+
+.horizon .measures .skyLine {
+    -fx-stroke: #58818E;
+    -fx-stroke-width: 1;
+}
+
+.horizon .measures .ground {
+    -fx-stroke: #FFFFFF;
+    -fx-stroke-width: 1;
+}
+
+.horizon Text{
+    -fx-font-family: 'Lato Hairline';
+    -fx-font-size: 14;
+    -fx-text-origin: center;
+    -fx-stroke: #58818E;
+}

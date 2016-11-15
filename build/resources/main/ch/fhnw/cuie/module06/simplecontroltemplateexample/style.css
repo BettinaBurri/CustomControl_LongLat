@@ -1,0 +1,40 @@
+.exampleControl {
+    -fx-padding: 10;
+    -fx-background-color: #bfd3e8;
+    -base-color: rgb(2, 138, 204);
+}
+
+.exampleControl .drawingPane{
+    -fx-background-color: -base-color;
+}
+
+.exampleControl .thumb {
+    -fx-fill: white;
+    -fx-cursor: hand;
+}
+
+.exampleControl .thumbPath {
+    -fx-stroke: white;
+    -fx-stroke-width: 1;
+    -fx-fill: transparent;
+}
+
+.exampleControl .display {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 32;
+    -fx-fill: white;
+}
+
+.exampleControl .timeDisplay {
+    -fx-font-family: 'DS-Digital';
+    -fx-font-size: 22;
+    -fx-fill: white;
+}
+
+.exampleControl .frame {
+    -fx-fill: derive(-base-color, 50%);
+    -fx-stroke: -base-color;
+    -fx-stroke-width: 5;
+    -fx-stroke-type: inside;
+}
+

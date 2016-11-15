@@ -1,0 +1,20 @@
+.statusIcon {
+    -fx-padding: 2;
+    -fx-background-color: rgb(240,240,240);
+    -base-color: rgb(151,151,151);
+}
+
+.statusIcon .line {
+    -fx-stroke: -base-color;
+    -fx-stroke-width: 6;
+    -fx-stroke-line-cap: round;
+}
+
+.statusIcon .frame {
+    //-fx-fill: derive(-base-color, 50%);
+    -fx-fill: radial-gradient(center 25% 25%, radius 100%, rgb(255, 255, 255) 0%, derive(-base-color, 60%) 100%);
+    -fx-effect: innershadow(gaussian, -base-color, 5.0, 0.5, 0.0, 0.0);
+    //-fx-stroke: -base-color;
+    -fx-stroke-type: inside;
+}
+

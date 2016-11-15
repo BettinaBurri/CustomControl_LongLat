@@ -1,0 +1,102 @@
+
+<svg width="300px" height="300px" viewBox="-118 -127 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Horizon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-118.000000, -127.000000)">
+        <circle id="sky" stroke="#A1A1A1" stroke-width="2" fill="#8CD9F1" cx="150" cy="150" r="150"></circle>
+        <path d="M300,150 C300,232.842712 232.842712,300 150,300 C67.1572875,300 0,232.842712 0,150 L300,150 Z" id="ground" stroke="#848484" fill="#3C4439"></path>
+        <g id="measures" transform="translate(0.000000, 14.000000)">
+            <path d="M130,271 L170,271" id="Line--45" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M110,256 L190,256" id="Line--40" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M130,241 L170,241" id="Line--35" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M110,226 L190,226" id="Line--30" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M130,211 L170,211" id="Line--25" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M110,196 L190,196" id="Line--20" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M130,181 L170,181" id="Line--15" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M110,166 L190,166" id="Line--10" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M130,151 L170,151" id="Line--5" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M0,135.5 L300,135.5" id="Line-0" stroke="#FFFFFF" stroke-linecap="square"></path>
+            <path d="M130,121 L170,121" id="Line-5" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M110,106 L190,106" id="Line-10" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M130,91 L170,91" id="Line-15" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M110,76 L190,76" id="Line-20" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M130,61 L170,61" id="Line-25" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M110,46 L190,46" id="Line-30" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M130,31 L170,31" id="Line-35" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M110,16 L190,16" id="Line-40" stroke="#58818E" stroke-linecap="square"></path>
+            <path d="M130,1 L170,1" id="Line-45" stroke="#58818E" stroke-linecap="square"></path>
+            <text id="-40" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="79" y="261">-40</tspan>
+            </text>
+            <text id="-40" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="197" y="260">-40</tspan>
+            </text>
+            <text id="-30" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="197" y="230">-30</tspan>
+            </text>
+            <text id="-30" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="79" y="230">-30</tspan>
+            </text>
+            <text id="-20" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="79" y="200">-20</tspan>
+            </text>
+            <text id="-20" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="197" y="200">-20</tspan>
+            </text>
+            <text id="-10" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="79" y="170">-10</tspan>
+            </text>
+            <text id="-10" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#FFFFFF">
+                <tspan x="197" y="170">-10</tspan>
+            </text>
+            <text id="10" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="85" y="110">10</tspan>
+            </text>
+            <text id="10" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="196" y="110">10</tspan>
+            </text>
+            <text id="20" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="85" y="80">20</tspan>
+            </text>
+            <text id="20" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="196" y="80">20</tspan>
+            </text>
+            <text id="30" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="85" y="51">30</tspan>
+            </text>
+            <text id="30" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="196" y="51">30</tspan>
+            </text>
+            <text id="40" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="85" y="21">40</tspan>
+            </text>
+            <text id="40" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#58818E">
+                <tspan x="196" y="21">40</tspan>
+            </text>
+        </g>
+        <g id="ticks" transform="translate(0.000000, 1.000000)" stroke-width="2" stroke-linecap="square">
+            <path d="M225.5,20.5 L222.987158,24.8226871" id="Line" stroke="#FFFFFF"></path>
+            <path d="M149,0 L149,5" id="Line" stroke="#DD3246"></path>
+            <path d="M0,148 L5,148" id="Line-Copy-22" stroke="#DD3246"></path>
+            <path d="M292.829629,110.705905 L288,112" id="Line-Copy-16" stroke="#FFFFFF"></path>
+            <path d="M12,110.705905 L7.17037087,112" id="Line-Copy-17" stroke="#FFFFFF" transform="translate(9.585185, 111.352952) scale(-1, 1) translate(-9.585185, -111.352952) "></path>
+            <path d="M278.746197,75 L274.373099,77.4240481" id="Line-Copy-15" stroke="#FFFFFF"></path>
+            <path d="M25.3730985,75 L21,77.4240481" id="Line-Copy-18" stroke="#FFFFFF" transform="translate(23.186549, 76.212024) scale(-1, 1) translate(-23.186549, -76.212024) "></path>
+            <path d="M254.071068,44 L250.535534,47.5355339" id="Line-Copy-14" stroke="#DD3246"></path>
+            <path d="M48.5355339,44 L45,47.5355339" id="Line-Copy-19" stroke="#DD3246" transform="translate(46.767767, 45.767767) scale(-1, 1) translate(-46.767767, -45.767767) "></path>
+            <path d="M225.5,20.669873 L223,25" id="Line-Copy-13" stroke="#FFFFFF"></path>
+            <path d="M79,20.669873 L76.5,25" id="Line-Copy-20" stroke="#FFFFFF" transform="translate(77.750000, 22.834936) scale(-1, 1) translate(-77.750000, -22.834936) "></path>
+            <path d="M191.294095,6.17037087 L190,11" id="Line-Copy-12" stroke="#FFFFFF"></path>
+            <path d="M113,5.17037087 L111.705905,10" id="Line-Copy-21" stroke="#FFFFFF" transform="translate(112.352952, 7.585185) scale(-1, 1) translate(-112.352952, -7.585185) "></path>
+            <path d="M295,148 L300,148" id="Line-Copy-23" stroke="#DD3246"></path>
+        </g>
+        <g id="Plane" transform="translate(128.000000, 131.000000)" stroke="#F05258" stroke-width="2">
+            <path d="M31.5,19 L43.5,19" id="Line" stroke-linecap="square"></path>
+            <path d="M22,10 L22,0" id="Line-Copy-25" stroke-linecap="square"></path>
+            <path d="M0.5,19 L12.5,19" id="Line-Copy-24" stroke-linecap="square"></path>
+            <circle id="Oval" cx="22" cy="19" r="9"></circle>
+        </g>
+        <polygon id="Triangle" stroke="#DA3E50" fill="#F37176" points="149.5 6 155 21 144 21"></polygon>
+    </g>
+</svg>

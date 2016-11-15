@@ -1,0 +1,15 @@
+.switch {
+    -fx-padding: 50;
+    -fx-background-color: rgb(250, 250, 250);
+}
+
+.switch .thumb {
+    -fx-fill: #3E82F7;
+}
+
+.switch .frame {
+    -fx-fill: #A2C5FF;
+    -fx-arc-height: 14;
+    -fx-arc-width: 14;
+}
+
