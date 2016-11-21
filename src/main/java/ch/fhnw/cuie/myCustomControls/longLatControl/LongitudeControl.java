@@ -29,7 +29,8 @@ import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
 
 /**
- * @author Dieter Holz
+ * @author Bettina Burri, Kathrin Koebel
+ * 
  */
 public class LongitudeControl extends Region {
     // needed for StyleableProperties
@@ -198,7 +199,7 @@ public class LongitudeControl extends Region {
         });
 
         animatedValueProperty().addListener((observable, oldValue, newValue) -> {
-            Point2D p = pointOnCircle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), VALUE_PATH_RADIUS, newValue.doubleValue());
+            Point2D p = pointOnCircle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), VALUE_PATH_RADIUS, newValue.doubleValue()+90);
             valueArc.setVisible(true);
             valueArc.setLength(getAngle(newValue));
             valueThumb.setCenterX(p.getX());
