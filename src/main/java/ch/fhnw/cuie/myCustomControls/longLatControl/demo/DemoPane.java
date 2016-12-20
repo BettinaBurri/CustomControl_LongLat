@@ -46,7 +46,7 @@ public class DemoPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), valueInputField, valueSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Latitude"), valueInputField, valueSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
