@@ -19,11 +19,9 @@ import javafx.util.converter.NumberStringConverter;
 public class DemoPane extends BorderPane {
     private LongitudeControl customControl;
 
-    private TextField   valueField;
     private TextField   valueInputField;
     private Slider      valueSlider;
-    private CheckBox    timerRunningBox;
-    private Slider      pulseSlider;
+
     private ColorPicker colorPicker;
 
     public DemoPane() {
@@ -37,22 +35,11 @@ public class DemoPane extends BorderPane {
 
         customControl = new LongitudeControl();
 
-        //valueField = new TextField();
-        //valueField.setText("0.0");
-
         valueInputField = new TextField();
         valueInputField.setText("0.0");
         valueSlider = new Slider(0, 360, 0);
-        //valueSlider.setShowTickLabels(true);
         valueSlider.setShowTickMarks(true);
-
-
-        //timerRunningBox = new CheckBox("Timer running");
-        //timerRunningBox.setSelected(false);
-
-        //pulseSlider = new Slider(0.5, 2.0, 1.0);
-        //pulseSlider.setShowTickLabels(true);
-        //pulseSlider.setShowTickMarks(true);
+        //valueSlider.setShowTickLabels(true);
 
         colorPicker = new ColorPicker();
     }
@@ -66,14 +53,10 @@ public class DemoPane extends BorderPane {
     }
 
     private void addBindings() {
-        //customControl.textValueProperty().bindBidirectional(valueField.textProperty());
-
-        //customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
-        //customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
-
         Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
         Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueDisplayProperty(), new NumberStringConverter());
         valueSlider.valueProperty().bindBidirectional(customControl.valueProperty());
+
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }
 

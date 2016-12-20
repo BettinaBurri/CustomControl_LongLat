@@ -6,6 +6,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.css.CssMetaData;
 import javafx.css.SimpleStyleableObjectProperty;
@@ -27,6 +28,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
+import javafx.util.converter.NumberStringConverter;
 
 /**
  * @author Bettina Burri, Kathrin Koebel
@@ -127,6 +129,7 @@ public class LongitudeControl extends Region {
 
     private void initializeParts() {
         display = createCenteredText("display");
+        display.getStyleClass().add("displayText");
 
         // Globe Lonitude Lines
         line4 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 100, 125);
@@ -179,7 +182,7 @@ public class LongitudeControl extends Region {
 
     private void addEventHandlers() {
         valueThumb.setOnMouseDragged(event -> {
-                setAnimatedValue((angle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), event.getX(), event.getY())));
+                setValue((angle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), event.getX(), event.getY())));
         });
     }
 
@@ -190,7 +193,7 @@ public class LongitudeControl extends Region {
             timeline.stop();
 
             timeline.getKeyFrames().setAll(
-                    new KeyFrame(Duration.millis(200),
+                    new KeyFrame(Duration.millis(10),
                             new KeyValue(animatedValue, newValue)));
 
             timeline.play();
@@ -202,7 +205,7 @@ public class LongitudeControl extends Region {
             valueArc.setLength(getAngle(newValue));
             valueThumb.setCenterX(p.getX());
             valueThumb.setCenterY(p.getY());
-            valueProperty().setValue(newValue);
+            //valueProperty().setValue(newValue);
         });
 
         // if you need the timer
@@ -234,7 +237,7 @@ public class LongitudeControl extends Region {
     }
 
     private void setupBindings() {
-        display.textProperty().bind(textValueProperty());
+        display.textProperty().bindBidirectional(textValueProperty());
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
     }
 

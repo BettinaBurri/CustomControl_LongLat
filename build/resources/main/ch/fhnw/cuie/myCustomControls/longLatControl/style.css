@@ -42,7 +42,14 @@
 .longitudeControl .valueTextBG{
     -fx-fill: rgba(255, 255, 255, 0.2);
     -fx-stroke-type: centered;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
 }
+
+.longitudeControl .displayText{
+    -fx-fill: derive(-base-color, 80%);
+}
+
 .longitudeControl .valueThumb{
     -fx-fill: -base-color;
 }

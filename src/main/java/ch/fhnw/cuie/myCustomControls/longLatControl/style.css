@@ -45,6 +45,11 @@
     -fx-font-size: 20px;
     -fx-font-weight: 700;
 }
+
+.longitudeControl .displayText{
+    -fx-fill: derive(-base-color, 80%);
+}
+
 .longitudeControl .valueThumb{
     -fx-fill: -base-color;
 }
