@@ -202,8 +202,7 @@ public class LongitudeControl extends Region {
             valueArc.setLength(getAngle(newValue));
             valueThumb.setCenterX(p.getX());
             valueThumb.setCenterY(p.getY());
-
-
+            valueProperty().setValue(newValue);
         });
 
         // if you need the timer
