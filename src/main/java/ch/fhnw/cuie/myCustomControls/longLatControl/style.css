@@ -11,7 +11,7 @@
     -fx-background-color: rgb(255, 255, 255);;
 }
 
-.longitudeControl .display {
+.longitudeControl .displayText {
     -fx-font-family: 'Lato Light';
     -fx-font-size: 32;
     -fx-fill: derive(-base-color, 80%);
@@ -44,10 +44,6 @@
     -fx-stroke-type: centered;
     -fx-font-size: 20px;
     -fx-font-weight: 700;
-}
-
-.longitudeControl .displayText{
-    -fx-fill: derive(-base-color, 80%);
 }
 
 .longitudeControl .valueThumb{

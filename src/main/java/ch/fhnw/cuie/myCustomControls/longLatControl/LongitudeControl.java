@@ -71,8 +71,6 @@ public class LongitudeControl extends Region {
     private Double maxLongValue = new Double(360);
 
     // all properties
-    private final StringProperty textValue = new SimpleStringProperty();
-    private final DoubleProperty valueDisplay = new SimpleDoubleProperty();
     private final DoubleProperty value    = new SimpleDoubleProperty();
     private final BooleanProperty animated  = new SimpleBooleanProperty(true);
     private DoubleProperty animatedValue  = new SimpleDoubleProperty();
@@ -237,7 +235,6 @@ public class LongitudeControl extends Region {
     }
 
     private void setupBindings() {
-        display.textProperty().bindBidirectional(textValueProperty());
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
     }
 
@@ -377,18 +374,6 @@ public class LongitudeControl extends Region {
         this.value.set(value);
     }
 
-    public String getTextValue() {
-        return textValue.get();
-    }
-
-    public StringProperty textValueProperty() {
-        return textValue;
-    }
-
-    public void setTextValue(String value) {
-        this.textValue.set(value);
-    }
-
     public Color getBaseColor() {
         return baseColor.get();
     }
@@ -439,18 +424,6 @@ public class LongitudeControl extends Region {
 
     public void setMaxLongValue(Double maxLongValue) {
         this.maxLongValue = maxLongValue;
-    }
-
-    public double getValueDisplay() {
-        return valueDisplay.get();
-    }
-
-    public DoubleProperty valueDisplayProperty() {
-        return valueDisplay;
-    }
-
-    public void setValueDisplay(double valueDisplay) {
-        this.valueDisplay.set(valueDisplay);
     }
 
     public double getAnimatedValue() {

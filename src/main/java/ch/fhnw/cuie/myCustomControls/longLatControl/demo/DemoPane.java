@@ -54,7 +54,6 @@ public class DemoPane extends BorderPane {
 
     private void addBindings() {
         Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
-        Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueDisplayProperty(), new NumberStringConverter());
         valueSlider.valueProperty().bindBidirectional(customControl.valueProperty());
 
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
