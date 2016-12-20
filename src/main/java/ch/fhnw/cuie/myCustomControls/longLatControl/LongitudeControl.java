@@ -68,13 +68,11 @@ public class LongitudeControl extends Region {
     private Double minLongValue = new Double(0);
     private Double maxLongValue = new Double(360);
 
-
-
     // all properties
     private final StringProperty textValue = new SimpleStringProperty();
-    private final DoubleProperty valueText = new SimpleDoubleProperty();
+    private final DoubleProperty valueDisplay = new SimpleDoubleProperty();
     private final DoubleProperty value    = new SimpleDoubleProperty();
-    private final BooleanProperty animated      = new SimpleBooleanProperty(true);
+    private final BooleanProperty animated  = new SimpleBooleanProperty(true);
     private DoubleProperty animatedValue  = new SimpleDoubleProperty();
 
     // Not needed properties ??
@@ -151,7 +149,7 @@ public class LongitudeControl extends Region {
         valuePath = new Circle(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125);
         valuePath.getStyleClass().add("valuePath");
 
-        valueThumb = new Circle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), THUMB_RADIUS);
+        valueThumb = new Circle(VALUE_PATH_CENTER.getX()+125, VALUE_PATH_CENTER.getY(), THUMB_RADIUS);
         valueThumb.getStyleClass().add("valueThumb");
 
         valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
@@ -274,7 +272,7 @@ public class LongitudeControl extends Region {
         double radius = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
         double nx     = deltaX / radius;
         double ny     = deltaY / radius;
-        double theta  = Math.toRadians(90) + Math.atan2(ny, nx);
+        double theta  = Math.toRadians(0) + Math.atan2(ny, nx);
 
         return Double.compare(theta, 0.0) >= 0 ? Math.toDegrees(theta) : Math.toDegrees((theta)) + 360.0;
     }
@@ -441,16 +439,16 @@ public class LongitudeControl extends Region {
         this.maxLongValue = maxLongValue;
     }
 
-    public double getValueText() {
-        return valueText.get();
+    public double getValueDisplay() {
+        return valueDisplay.get();
     }
 
-    public DoubleProperty valueTextProperty() {
-        return valueText;
+    public DoubleProperty valueDisplayProperty() {
+        return valueDisplay;
     }
 
-    public void setValueText(double valueText) {
-        this.valueText.set(valueText);
+    public void setValueDisplay(double valueDisplay) {
+        this.valueDisplay.set(valueDisplay);
     }
 
     public double getAnimatedValue() {

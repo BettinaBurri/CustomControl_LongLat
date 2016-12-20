@@ -10,9 +10,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 import javafx.util.converter.NumberStringConverter;
-import sun.jvm.hotspot.oops.DoubleField;
 
 
 /**
@@ -22,7 +20,8 @@ public class DemoPane extends BorderPane {
     private LongitudeControl customControl;
 
     private TextField   valueField;
-    private TextField valueInputField;
+    private TextField   valueInputField;
+    private Slider      valueSlider;
     private CheckBox    timerRunningBox;
     private Slider      pulseSlider;
     private ColorPicker colorPicker;
@@ -38,25 +37,29 @@ public class DemoPane extends BorderPane {
 
         customControl = new LongitudeControl();
 
-        valueField = new TextField();
-        valueField.setText("0.0");
+        //valueField = new TextField();
+        //valueField.setText("0.0");
 
         valueInputField = new TextField();
         valueInputField.setText("0.0");
+        valueSlider = new Slider(0, 360, 0);
+        //valueSlider.setShowTickLabels(true);
+        valueSlider.setShowTickMarks(true);
 
-        timerRunningBox = new CheckBox("Timer running");
-        timerRunningBox.setSelected(false);
 
-        pulseSlider = new Slider(0.5, 2.0, 1.0);
-        pulseSlider.setShowTickLabels(true);
-        pulseSlider.setShowTickMarks(true);
+        //timerRunningBox = new CheckBox("Timer running");
+        //timerRunningBox.setSelected(false);
+
+        //pulseSlider = new Slider(0.5, 2.0, 1.0);
+        //pulseSlider.setShowTickLabels(true);
+        //pulseSlider.setShowTickMarks(true);
 
         colorPicker = new ColorPicker();
     }
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), valueField, valueInputField, timerRunningBox, pulseSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Control Properties"), valueInputField, valueSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
@@ -65,11 +68,12 @@ public class DemoPane extends BorderPane {
     private void addBindings() {
         //customControl.textValueProperty().bindBidirectional(valueField.textProperty());
 
-        customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
-        customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
+        //customControl.timerIsRunningProperty().bindBidirectional(timerRunningBox.selectedProperty());
+        //customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
 
         Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
-        Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueTextProperty(), new NumberStringConverter());
+        Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueDisplayProperty(), new NumberStringConverter());
+        valueSlider.valueProperty().bindBidirectional(customControl.valueProperty());
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }
 
