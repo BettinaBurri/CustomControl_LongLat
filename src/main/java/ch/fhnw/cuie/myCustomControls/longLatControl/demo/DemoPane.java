@@ -51,7 +51,7 @@ public class DemoPane extends BorderPane {
         });
 
 
-        valueSlider = new Slider(0, 360, 0);
+        valueSlider = new Slider(customControl.getMinLongValue(), customControl.getMaxLongValue(), 0);
         valueSlider.setShowTickMarks(true);
         //valueSlider.setShowTickLabels(true);
 

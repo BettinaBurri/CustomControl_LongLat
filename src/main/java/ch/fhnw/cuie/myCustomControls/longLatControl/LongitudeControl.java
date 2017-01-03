@@ -67,8 +67,8 @@ public class LongitudeControl extends Region {
     private Ellipse line0, line1, line2, line3, line4;
     private Line horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9;
     private Rectangle valueTextBG;
-    private Double minLongValue = new Double(0);
-    private Double maxLongValue = new Double(360);
+    private Double minLongValue = new Double(-180);
+    private Double maxLongValue = new Double(180);
 
     // all properties
     private final DoubleProperty value    = new SimpleDoubleProperty();
@@ -175,7 +175,7 @@ public class LongitudeControl extends Region {
         valueThumb = new Circle(VALUE_PATH_CENTER.getX()+125, VALUE_PATH_CENTER.getY(), THUMB_RADIUS);
         valueThumb.getStyleClass().add("valueThumb");
 
-        valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
+        valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 180, 0);
         valueArc.getStyleClass().add("valueArc");
         valueArc.setType(ArcType.OPEN);
 
@@ -262,6 +262,7 @@ public class LongitudeControl extends Region {
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
     }
 
+
     private void performPeriodicTask() { valueArc.setVisible(!valueArc.isVisible());
     }
 
@@ -297,7 +298,8 @@ public class LongitudeControl extends Region {
         double ny     = deltaY / radius;
         double theta  = Math.toRadians(0) + Math.atan2(ny, nx);
 
-        return Double.compare(theta, 0.0) >= 0 ? Math.toDegrees(theta) : Math.toDegrees((theta)) + 360.0;
+        // add 360 to avoid negative values (not needed in this case)
+        return Double.compare(theta, 0.0) >= 0 ? Math.toDegrees(theta) : Math.toDegrees((theta)) + 0;
     }
 
     /*
