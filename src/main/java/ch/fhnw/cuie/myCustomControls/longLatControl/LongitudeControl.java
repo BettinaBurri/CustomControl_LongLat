@@ -175,7 +175,7 @@ public class LongitudeControl extends Region {
         valueThumb = new Circle(VALUE_PATH_CENTER.getX()+125, VALUE_PATH_CENTER.getY(), THUMB_RADIUS);
         valueThumb.getStyleClass().add("valueThumb");
 
-        valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 180, 0);
+        valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
         valueArc.getStyleClass().add("valueArc");
         valueArc.setType(ArcType.OPEN);
 
@@ -224,7 +224,7 @@ public class LongitudeControl extends Region {
         animatedValueProperty().addListener((observable, oldValue, newValue) -> {
             Point2D p = pointOnCircle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), VALUE_PATH_RADIUS, newValue.doubleValue()+90);
             valueArc.setVisible(true);
-            valueArc.setLength(getAngle(newValue));
+            valueArc.setLength(getAngle(newValue)+180);
             valueThumb.setCenterX(p.getX());
             valueThumb.setCenterY(p.getY());
             //valueProperty().setValue(newValue);
