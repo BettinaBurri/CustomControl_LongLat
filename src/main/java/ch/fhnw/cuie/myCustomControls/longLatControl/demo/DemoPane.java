@@ -46,10 +46,8 @@ public class DemoPane extends BorderPane {
         // limit input to numbers & check min/max value
         valueInputField.textProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue.matches("^[0-9, -]*\\.?[0-9]*$")
-                        && Float.parseFloat(newValue)>=minValue
-                        && Float.parseFloat(newValue)<=maxValue) {
-                    double value = Float.parseFloat(newValue);
+                if (checkNumberRange(newValue, minValue, maxValue) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
+                    double value = parseSignedDouble(newValue);
                 } else {
                     valueInputField.setText(oldValue);
                 }
@@ -79,4 +77,35 @@ public class DemoPane extends BorderPane {
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }
 
+    private boolean checkNumberRange(String value, int minValue, int maxValue){
+        boolean positiveNumber = true;
+        if (value.startsWith("-")) {
+            value = value.substring(1);
+            positiveNumber = false;
+        }
+        double doubleValue = Double.parseDouble(value);
+
+        if(positiveNumber){
+            return doubleValue>=minValue && doubleValue<=maxValue;
+        }
+        else {
+            return -doubleValue>=minValue && -doubleValue<=maxValue;
+        }
+    }
+
+    private double parseSignedDouble(String value){
+        boolean positiveNumber = true;
+        if (value.startsWith("-")) {
+            value = value.substring(1);
+            positiveNumber = false;
+        }
+        double doubleValue = Double.parseDouble(value);
+
+        if(positiveNumber){
+            return doubleValue;
+        }
+        else {
+            return -doubleValue;
+        }
+    }
 }
