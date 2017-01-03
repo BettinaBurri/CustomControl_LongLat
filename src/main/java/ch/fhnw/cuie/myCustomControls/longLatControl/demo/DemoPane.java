@@ -3,7 +3,6 @@ package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
 import ch.fhnw.cuie.myCustomControls.longLatControl.LongitudeControl;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -11,16 +10,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.NumberStringConverter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 
 /**
- * @author Dieter Holz
+ * @author Dieter Holz, Bettina Burri, Kathrin Koebel
  */
 public class DemoPane extends BorderPane {
     private LongitudeControl customControl;
 
     private TextField   valueInputField;
     private Slider      valueSlider;
+
+    // set min & max value
+    private int minValue = -100;
+    private int maxValue = 360;
 
     private ColorPicker colorPicker;
 
@@ -37,6 +42,21 @@ public class DemoPane extends BorderPane {
 
         valueInputField = new TextField();
         valueInputField.setText("0.0");
+
+        // limit input to numbers & check min/max value
+        valueInputField.textProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue.matches("^[0-9, -]*\\.?[0-9]*$")
+                        && Float.parseFloat(newValue)>=minValue
+                        && Float.parseFloat(newValue)<=maxValue) {
+                    double value = Float.parseFloat(newValue);
+                } else {
+                    valueInputField.setText(oldValue);
+                }
+            }
+        });
+
+
         valueSlider = new Slider(0, 360, 0);
         valueSlider.setShowTickMarks(true);
         //valueSlider.setShowTickLabels(true);

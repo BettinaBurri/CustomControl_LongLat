@@ -28,7 +28,6 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
-import javafx.util.converter.NumberStringConverter;
 
 /**
  * @author Bettina Burri, Kathrin Koebel
@@ -66,6 +65,7 @@ public class LongitudeControl extends Region {
     private Circle valuePath, valueThumb;
     private Arc valueArc;
     private Ellipse line0, line1, line2, line3, line4;
+    private Line horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9;
     private Rectangle valueTextBG;
     private Double minLongValue = new Double(0);
     private Double maxLongValue = new Double(360);
@@ -141,6 +141,28 @@ public class LongitudeControl extends Region {
         line0 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 0, 125);
         line0.getStyleClass().add("longitudeLine");
 
+
+        // Globe Latitude Lines
+        horizontalLine1 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2-100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2-100);
+        horizontalLine1.getStyleClass().add("latitudeLine");
+        horizontalLine2 = new Line(ARTBOARD_WIDTH/2-100, ARTBOARD_HEIGHT/2-75, ARTBOARD_WIDTH/2+100, ARTBOARD_HEIGHT/2-75);
+        horizontalLine2.getStyleClass().add("latitudeLine");
+        horizontalLine3 = new Line(ARTBOARD_WIDTH/2-114.564, ARTBOARD_HEIGHT/2-50, ARTBOARD_WIDTH/2+114.564, ARTBOARD_HEIGHT/2-50);
+        horizontalLine3.getStyleClass().add("latitudeLine");
+        horizontalLine4 = new Line(ARTBOARD_WIDTH/2-122.474, ARTBOARD_HEIGHT/2-25, ARTBOARD_WIDTH/2+122.474, ARTBOARD_HEIGHT/2-25);
+        horizontalLine4.getStyleClass().add("latitudeLine");
+        horizontalLine5 = new Line(ARTBOARD_WIDTH/2-125, ARTBOARD_HEIGHT/2, ARTBOARD_WIDTH/2+125, ARTBOARD_HEIGHT/2);
+        horizontalLine5.getStyleClass().add("latitudeLine");
+        horizontalLine6 = new Line(ARTBOARD_WIDTH/2-122.474, ARTBOARD_HEIGHT/2+25, ARTBOARD_WIDTH/2+122.474, ARTBOARD_HEIGHT/2+25);
+        horizontalLine6.getStyleClass().add("latitudeLine");
+        horizontalLine7 = new Line(ARTBOARD_WIDTH/2-114.564, ARTBOARD_HEIGHT/2+50, ARTBOARD_WIDTH/2+114.564, ARTBOARD_HEIGHT/2+50);
+        horizontalLine7.getStyleClass().add("latitudeLine");
+        horizontalLine8 = new Line(ARTBOARD_WIDTH/2-100, ARTBOARD_HEIGHT/2+75, ARTBOARD_WIDTH/2+100, ARTBOARD_HEIGHT/2+75);
+        horizontalLine8.getStyleClass().add("latitudeLine");
+        horizontalLine9 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2+100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2+100);
+        horizontalLine9.getStyleClass().add("latitudeLine");
+
+
         // Globe value Label
         valueTextBG = new Rectangle(70, 105, 160, 80);
         valueTextBG.getStyleClass().add("valueTextBG");
@@ -169,7 +191,9 @@ public class LongitudeControl extends Region {
 
     private void layoutParts() {
         // add all your parts here
-        drawingPane.getChildren().addAll( line4, line3, line2, line1, line0, valueTextBG, display, valuePath, valueArc, valueThumb);
+        drawingPane.getChildren().addAll( line4, line3, line2, line1, line0,
+                horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9,
+                valueTextBG, display, valuePath, valueArc, valueThumb);
 
         getChildren().add(drawingPane);
     }

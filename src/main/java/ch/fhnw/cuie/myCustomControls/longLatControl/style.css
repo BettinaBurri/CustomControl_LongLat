@@ -39,6 +39,13 @@
     -fx-stroke-type: centered;
 }
 
+.longitudeControl .latitudeLine{
+    -fx-fill: transparent;
+    -fx-stroke: derive(-bg-color, 20%);
+    -fx-stroke-width: 1;
+    -fx-stroke-type: centered;
+}
+
 .longitudeControl .valueTextBG{
     -fx-fill: rgba(255, 255, 255, 0.2);
     -fx-stroke-type: centered;
