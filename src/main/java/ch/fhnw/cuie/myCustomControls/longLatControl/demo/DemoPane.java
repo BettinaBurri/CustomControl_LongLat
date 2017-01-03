@@ -23,10 +23,6 @@ public class DemoPane extends BorderPane {
     private TextField   valueInputField;
     private Slider      valueSlider;
 
-    // set min & max value
-    private int minValue = -100;
-    private int maxValue = 360;
-
     private ColorPicker colorPicker;
 
     public DemoPane() {
@@ -46,7 +42,7 @@ public class DemoPane extends BorderPane {
         // limit input to numbers & check min/max value
         valueInputField.textProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (checkNumberRange(newValue, minValue, maxValue) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
+                if (checkNumberRange(newValue, customControl.getMinLongValue(), customControl.getMaxLongValue()) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
                     double value = parseSignedDouble(newValue);
                 } else {
                     valueInputField.setText(oldValue);
@@ -77,7 +73,7 @@ public class DemoPane extends BorderPane {
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }
 
-    private boolean checkNumberRange(String value, int minValue, int maxValue){
+    private boolean checkNumberRange(String value, Double minValue, Double maxValue){
         boolean positiveNumber = true;
         if (value.startsWith("-")) {
             value = value.substring(1);
