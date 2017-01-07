@@ -192,7 +192,7 @@ public class LongitudeControl extends Region {
     private void layoutParts() {
         // add all your parts here
         drawingPane.getChildren().addAll( line4, line3, line2, line1, line0,
-                horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9,
+                /* horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9, */
                 valueTextBG, display, valuePath, valueArc, valueThumb);
 
         getChildren().add(drawingPane);

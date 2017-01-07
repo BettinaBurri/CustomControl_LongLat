@@ -249,7 +249,7 @@ public class LatitudeControl extends Region {
     }
 
     private double getAngle(Number value) {
-        return -(3.6 * getPercentage(value));
+        return (3.6 * getPercentage(value));
     }
 
     private double getPercentage(Number newValue) {

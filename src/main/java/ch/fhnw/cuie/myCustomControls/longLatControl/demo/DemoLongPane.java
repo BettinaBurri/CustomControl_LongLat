@@ -17,7 +17,7 @@ import javafx.beans.value.ObservableValue;
 /**
  * @author Dieter Holz, Bettina Burri, Kathrin Koebel
  */
-public class DemoPane extends BorderPane {
+public class DemoLongPane extends BorderPane {
     private LongitudeControl customControl;
 
     private TextField   valueInputField;
@@ -25,7 +25,7 @@ public class DemoPane extends BorderPane {
 
     private ColorPicker colorPicker;
 
-    public DemoPane() {
+    public DemoLongPane() {
         initializeControls();
         layoutControls();
         addBindings();
