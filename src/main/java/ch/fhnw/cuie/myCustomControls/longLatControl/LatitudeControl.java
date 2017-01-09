@@ -200,7 +200,7 @@ public class LatitudeControl extends Region {
 
     private void addEventHandlers() {
         valueThumb.setOnMouseDragged(event -> {
-                setValue((angle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), event.getX(), event.getY())));
+                setValue(-1.0 * (angle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), event.getX(), event.getY())));
         });
     }
 
@@ -224,7 +224,7 @@ public class LatitudeControl extends Region {
 
             //valueProperty().setValue(newValue);
             if(newValue.doubleValue() >= minLatValue && newValue.doubleValue() <= maxLatValue){
-                valueArc.setLength(-(newValue.doubleValue()));
+                valueArc.setLength(newValue.doubleValue());
                 valueThumb.setCenterX(p.getX());
                 valueThumb.setCenterY(p.getY());
             }
@@ -315,7 +315,7 @@ public class LatitudeControl extends Region {
      */
     private Point2D pointOnCircle(double cX, double cY, double radius, double angle) {
         return new Point2D(cX - (radius * Math.sin(Math.toRadians(angle - 180))),
-                           cY + (radius * Math.cos(Math.toRadians(angle - 180))));
+                           cY + (radius * Math.cos(Math.toRadians(angle))));
     }
 
     /*
