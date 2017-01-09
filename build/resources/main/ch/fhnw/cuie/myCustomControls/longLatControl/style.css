@@ -17,6 +17,17 @@
     -fx-fill: derive(-base-color, 80%);
 }
 
+.longitudeControl .displayInput, .latitudeControl .displayInput {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 30;
+    -fx-fill: derive(-base-color, 80%);
+    -fx-color: derive(-base-color, 80%);
+    -fx-border-color: derive(-base-color, 0%);
+    -fx-border-width: 0 !important;
+    -fx-opacity: 0.75;
+    -fx-background-color: transparent;
+}
+
 .longitudeControl .valuePath, .latitudeControl .valuePath{
     -fx-fill: transparent;
     -fx-stroke: -bg-color;
