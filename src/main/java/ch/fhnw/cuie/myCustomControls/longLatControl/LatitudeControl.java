@@ -4,15 +4,20 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.css.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
@@ -21,6 +26,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBoundsType;
 import javafx.util.Duration;
+import javafx.util.converter.NumberStringConverter;
 
 import java.util.List;
 
@@ -57,6 +63,7 @@ public class LatitudeControl extends Region {
 
     // all parts
     private Text display;
+    private TextField valueInputField;
     private Circle valueThumb;
     private Arc valueArc, valuePath;
     private Ellipse line0, line1, line2, line3, line4, line5;
@@ -120,6 +127,26 @@ public class LatitudeControl extends Region {
 
 
     private void initializeParts() {
+        valueInputField = new TextField();
+        valueInputField.setText("0.0");
+        valueInputField.getStyleClass().add("displayInput");
+        valueInputField.setPrefWidth(150);
+        valueInputField.setMaxWidth(150);
+        valueInputField.setLayoutY(120);
+        valueInputField.setLayoutX(75);
+        valueInputField.setAlignment(Pos.CENTER);
+
+        // limit input to numbers & check min/max value
+        valueInputField.textProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue.matches("^(-){0,1}[0-9]*\\.?[0-9]{0,4}") && checkNumberRange(newValue, getMinLatValue(), getMaxLatValue())) {
+                    double value = parseSignedDouble(newValue);
+                } else {
+                    valueInputField.setText(oldValue);
+                }
+            }
+        });
+
         display = createCenteredText("display");
         display.getStyleClass().add("displayText");
 
@@ -189,7 +216,7 @@ public class LatitudeControl extends Region {
         // add all your parts here
         drawingPane.getChildren().addAll( line5, /*line4, line3, line2, line1, line0,*/
                 horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9,
-                valueTextBG, display, valuePath, valueArc, valueThumb);
+                valueTextBG, /*display, */ valueInputField, valuePath, valueArc, valueThumb);
 
         getChildren().add(drawingPane);
     }
@@ -261,6 +288,7 @@ public class LatitudeControl extends Region {
 
     private void setupBindings() {
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
+        Bindings.bindBidirectional(valueInputField.textProperty(), valueProperty(), new NumberStringConverter());
     }
 
 
@@ -358,6 +386,39 @@ public class LatitudeControl extends Region {
 
         return className.substring(0, 1).toLowerCase() + className.substring(1);
     }
+
+    private boolean checkNumberRange(String value, Double minValue, Double maxValue){
+        boolean positiveNumber = true;
+        if (value.startsWith("-")) {
+            value = value.substring(1);
+            positiveNumber = false;
+        }
+        double doubleValue = Double.parseDouble(value);
+
+        if(positiveNumber){
+            return doubleValue>=minValue && doubleValue<=maxValue;
+        }
+        else {
+            return -doubleValue>=minValue && -doubleValue<=maxValue;
+        }
+    }
+
+    private double parseSignedDouble(String value){
+        boolean positiveNumber = true;
+        if (value.startsWith("-")) {
+            value = value.substring(1);
+            positiveNumber = false;
+        }
+        double doubleValue = Double.parseDouble(value);
+
+        if(positiveNumber){
+            return doubleValue;
+        }
+        else {
+            return -doubleValue;
+        }
+    }
+
 
     // compute sizes
 
