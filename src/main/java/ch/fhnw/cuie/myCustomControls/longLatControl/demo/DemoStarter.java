@@ -1,5 +1,6 @@
 package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
 
+import ch.fhnw.cuie.myCustomControls.longLatControl.CompleteControlLatitude;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;

@@ -10,10 +10,6 @@ public class DropDownChooserLatitude extends HBox {
     private static final String FONTS_CSS = "fonts.css";
     private static final String STYLE_CSS = "dropDownChooser.css";
 
-    private TextField input;
-    private static final String ANGLE_DOWN = "\uf107";
-    private static final String ANGLE_UP   = "\uf106";
-
     private LatitudeControl customControl;
 
 
@@ -27,7 +23,6 @@ public class DropDownChooserLatitude extends HBox {
 
     private void initializeSelf(){
 
-        input = new TextField();
         getStyleClass().add("dropDownChooser");
 
         String fonts = getClass().getResource(FONTS_CSS).toExternalForm();
@@ -42,7 +37,7 @@ public class DropDownChooserLatitude extends HBox {
     }
 
     private void layoutParts(){
-        getChildren().addAll(input, customControl);
+        getChildren().addAll(customControl);
     }
 
     private void setupBindings(){
