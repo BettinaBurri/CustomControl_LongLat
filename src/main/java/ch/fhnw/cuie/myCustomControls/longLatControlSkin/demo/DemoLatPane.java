@@ -1,7 +1,6 @@
-package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
+package ch.fhnw.cuie.myCustomControls.longLatControlSkin.demo;
 
 
-import ch.fhnw.cuie.myCustomControls.longLatControl.DropDownChooserLatitude;
 import ch.fhnw.cuie.myCustomControls.longLatControl.LatitudeControl;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
@@ -21,7 +20,6 @@ import javafx.util.converter.NumberStringConverter;
  */
 public class DemoLatPane extends BorderPane {
     private LatitudeControl customControl;
-    //private DropDownChooserLatitude businessControl;
 
 
     private TextField   valueInputField;
@@ -39,7 +37,6 @@ public class DemoLatPane extends BorderPane {
         setPadding(new Insets(10));
 
         customControl = new LatitudeControl();
-        //businessControl = new DropDownChooserLatitude();
 
         valueInputField = new TextField();
         valueInputField.setText("0.0");

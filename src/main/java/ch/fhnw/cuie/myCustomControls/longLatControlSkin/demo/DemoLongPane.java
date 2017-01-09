@@ -1,11 +1,7 @@
-package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
+package ch.fhnw.cuie.myCustomControls.longLatControlSkin.demo;
 
-
-import ch.fhnw.cuie.myCustomControls.longLatControl.DropDownChooserLatitude;
-import ch.fhnw.cuie.myCustomControls.longLatControl.LatitudeControl;
+import ch.fhnw.cuie.myCustomControls.longLatControl.LongitudeControl;
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
@@ -14,22 +10,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.NumberStringConverter;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 
 /**
  * @author Dieter Holz, Bettina Burri, Kathrin Koebel
  */
-public class DemoLatPane extends BorderPane {
-    private LatitudeControl customControl;
-    //private DropDownChooserLatitude businessControl;
-
+public class DemoLongPane extends BorderPane {
+    private LongitudeControl customControl;
 
     private TextField   valueInputField;
     private Slider      valueSlider;
 
     private ColorPicker colorPicker;
 
-    public DemoLatPane() {
+    public DemoLongPane() {
         initializeControls();
         layoutControls();
         addBindings();
@@ -38,8 +34,7 @@ public class DemoLatPane extends BorderPane {
     private void initializeControls() {
         setPadding(new Insets(10));
 
-        customControl = new LatitudeControl();
-        //businessControl = new DropDownChooserLatitude();
+        customControl = new LongitudeControl();
 
         valueInputField = new TextField();
         valueInputField.setText("0.0");
@@ -47,7 +42,7 @@ public class DemoLatPane extends BorderPane {
         // limit input to numbers & check min/max value
         valueInputField.textProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (checkNumberRange(newValue, customControl.getMinLatValue(), customControl.getMaxLatValue()) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
+                if (checkNumberRange(newValue, customControl.getMinLongValue(), customControl.getMaxLongValue()) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
                     double value = parseSignedDouble(newValue);
                 } else {
                     valueInputField.setText(oldValue);
@@ -56,7 +51,7 @@ public class DemoLatPane extends BorderPane {
         });
 
 
-        valueSlider = new Slider(customControl.getMinLatValue(), customControl.getMaxLatValue(), 0);
+        valueSlider = new Slider(customControl.getMinLongValue(), customControl.getMaxLongValue(), 0);
         valueSlider.setShowTickMarks(true);
         //valueSlider.setShowTickLabels(true);
 
@@ -65,7 +60,7 @@ public class DemoLatPane extends BorderPane {
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Latitude"), valueInputField, valueSlider, colorPicker);
+        VBox box = new VBox(10, new Label("Longitude"), valueInputField, valueSlider, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);

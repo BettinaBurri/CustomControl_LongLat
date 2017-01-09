@@ -1,5 +1,6 @@
-package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
+package ch.fhnw.cuie.myCustomControls.longLatControlSkin.demo;
 
+import ch.fhnw.cuie.myCustomControls.longLatControl.demo.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -12,7 +13,7 @@ public class DemoStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Region rootPanel = new DemoLongPane();
+        Region rootPanel = new ch.fhnw.cuie.myCustomControls.longLatControl.demo.DemoLatPane();
 
         Scene scene = new Scene(rootPanel);
 

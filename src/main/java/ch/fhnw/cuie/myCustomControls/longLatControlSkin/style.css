@@ -1,0 +1,59 @@
+.longitudeControl, .latitudeControl {
+    -fx-padding: 10;
+    -base-color: rgb(2, 138, 204);
+    -fx-background-color: derive(-base-color, 80%);
+    -bg-color: rgb(230, 230, 230);
+    -highlight-color: rgb(145, 0, 145);
+    -base-color-transparency: rgba(2, 138, 204, 50);
+}
+
+.longitudeControl .drawingPane, .latitudeControl .drawingPane {
+    -fx-background-color: rgb(255, 255, 255);;
+}
+
+.longitudeControl .displayText, .latitudeControl .displayText {
+    -fx-font-family: 'Lato Light';
+    -fx-font-size: 32;
+    -fx-fill: derive(-base-color, 80%);
+}
+
+.longitudeControl .valuePath, .latitudeControl .valuePath{
+    -fx-fill: transparent;
+    -fx-stroke: -bg-color;
+    -fx-stroke-width: 7;
+    -fx-stroke-type: centered;
+    -fx-stroke-line-cap: round;
+}
+
+.longitudeControl .valueArc, .latitudeControl .valueArc{
+    -fx-fill: transparent;
+    -fx-stroke: -base-color;
+    -fx-stroke-width: 7;
+    -fx-stroke-type: centered;
+    -fx-stroke-line-cap: round;
+}
+
+.longitudeControl .longitudeLine, .latitudeControl .longitudeLine{
+    -fx-fill: transparent;
+    -fx-stroke: -bg-color;
+    -fx-stroke-width: 1;
+    -fx-stroke-type: centered;
+}
+
+.longitudeControl .latitudeLine, .latitudeControl .latitudeLine{
+    -fx-fill: transparent;
+    -fx-stroke: derive(-bg-color, 20%);
+    -fx-stroke-width: 1;
+    -fx-stroke-type: centered;
+}
+
+.longitudeControl .valueTextBG, .latitudeControl .valueTextBG{
+    -fx-fill: rgba(255, 255, 255, 0.2);
+    -fx-stroke-type: centered;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.longitudeControl .valueThumb, .latitudeControl .valueThumb{
+    -fx-fill: -base-color;
+}
