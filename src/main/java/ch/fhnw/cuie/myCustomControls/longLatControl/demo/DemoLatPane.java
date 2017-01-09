@@ -47,7 +47,7 @@ public class DemoLatPane extends BorderPane {
         // limit input to numbers & check min/max value
         valueInputField.textProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (checkNumberRange(newValue, customControl.getMinLatValue(), customControl.getMaxLatValue()) && newValue.matches("^[0-9, -]*\\.?[0-9]*$")) {
+                if (newValue.matches("^(-){0,1}[0-9]*\\.?[0-9]*$") && checkNumberRange(newValue, customControl.getMinLatValue(), customControl.getMaxLatValue())) {
                     double value = parseSignedDouble(newValue);
                 } else {
                     valueInputField.setText(oldValue);
