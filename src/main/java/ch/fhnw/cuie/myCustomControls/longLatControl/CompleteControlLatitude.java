@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
+import javafx.util.converter.NumberStringConverter;
 
 import javax.xml.soap.Text;
 
@@ -42,7 +43,7 @@ public class CompleteControlLatitude extends StackPane{
     private Button chooserButton;
 
     // Propertys
-    private final DoubleProperty latitudeValue    = new SimpleDoubleProperty(0.0);
+    private final DoubleProperty latitudeValue    = new SimpleDoubleProperty(40.0);
     private LatitudeControl customControl;
 
     public CompleteControlLatitude(){
@@ -56,12 +57,10 @@ public class CompleteControlLatitude extends StackPane{
     private void initializeSelf(){
         addStyleSheets(this);
         getStyleClass().add(getStyleClassName());
-
     }
 
     private void initializeParts(){
         textField = new TextField();
-        textField.setText("0.0");
         textField.setPrefWidth(250);
 
         textField.textProperty().addListener(new ChangeListener<String>() {
@@ -78,8 +77,7 @@ public class CompleteControlLatitude extends StackPane{
 
         chooserButton = new Button(ANGLE_DOWN);
         chooserButton.getStyleClass().add("chooserButton");
-        //dropDownChooser = new DropDownChooserLatitude(customControl);
-        dropDownChooser = new DropDownChooserLatitude();
+        dropDownChooser = new DropDownChooserLatitude(customControl);
 
         popup = new Popup();
         popup.getContent().addAll(dropDownChooser);
@@ -113,6 +111,7 @@ public class CompleteControlLatitude extends StackPane{
     private void setupBindings(){
         //Bindings.bindBidirectional(dropDownChooser.getLatitudeControl(), latitudeValueProperty());
         //latitudeValueProperty().bindBidirectional();
+        Bindings.bindBidirectional(textField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
     }
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){
         boolean positiveNumber = true;

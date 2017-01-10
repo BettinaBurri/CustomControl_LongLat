@@ -1,5 +1,7 @@
 package ch.fhnw.cuie.myCustomControls.longLatControl;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -22,12 +24,6 @@ public class DropDownChooserLatitude extends StackPane {
         layoutParts();
         setupBindings();
     }
-    public DropDownChooserLatitude(){
-        initializeSelf();
-        initializeParts();
-        layoutParts();
-        setupBindings();
-    }
 
     private void initializeSelf(){
         getStyleClass().add("dropDownChooser");
@@ -39,8 +35,6 @@ public class DropDownChooserLatitude extends StackPane {
     }
 
     private void initializeParts(){
-        customControl = new LatitudeControl();
-
     }
 
     private void layoutParts(){
