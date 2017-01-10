@@ -26,6 +26,11 @@
     -fx-border-width: 0 !important;
     -fx-opacity: 0.75;
     -fx-background-color: transparent;
+    -fx-highlight-fill: derive(-base-color, 0%);
+
+}
+.longitudeControl .displayInput:selected, .latitudeControl .displayInput:selected {
+    -fx-background-color: red;
 }
 
 .longitudeControl .valuePath, .latitudeControl .valuePath{

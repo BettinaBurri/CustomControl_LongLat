@@ -49,6 +49,7 @@ public class LongitudeControl extends Region {
 
     private static final String FONTS_CSS = "fonts.css";
     private static final String STYLE_CSS = "style.css";
+    private static final String BASE_COLOR = "#ffff66";
 
     private static final double ARTBOARD_WIDTH  = 300;
     private static final double ARTBOARD_HEIGHT = 300;
@@ -92,6 +93,7 @@ public class LongitudeControl extends Region {
         @Override
         protected void invalidated() {
             setStyle(BASE_COLOR_META_DATA.getProperty() + ": " + (getBaseColor()).toString().replace("0x", "#") + ";");
+            setStyle(BASE_COLOR_META_DATA.getProperty() + ": " + BASE_COLOR + ";");
             applyCss();
         }
     };
