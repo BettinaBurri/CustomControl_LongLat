@@ -27,10 +27,6 @@
     -fx-opacity: 0.75;
     -fx-background-color: transparent;
     -fx-highlight-fill: derive(-base-color, 0%);
-
-}
-.longitudeControl .displayInput:selected, .latitudeControl .displayInput:selected {
-    -fx-background-color: red;
 }
 
 .longitudeControl .valuePath, .latitudeControl .valuePath{
@@ -74,7 +70,7 @@
     -fx-fill: -base-color;
 }
 
-.completeControlLatitude .chooserButton {
+.completeControlLatitude .chooserButton, .completeControlLongitude .chooserButton  {
     -fx-font-family: 'FontAwesome';
     -fx-border-color: transparent;
     -fx-background-color: transparent;

@@ -137,10 +137,10 @@ public class LongitudeControl extends Region {
         valueInputField = new TextField();
         valueInputField.setText("0.0");
         valueInputField.getStyleClass().add("displayInput");
-        valueInputField.setPrefWidth(150);
-        valueInputField.setMaxWidth(150);
+        valueInputField.setPrefWidth(200);
+        valueInputField.setMaxWidth(200);
         valueInputField.setLayoutY(120);
-        valueInputField.setLayoutX(75);
+        valueInputField.setLayoutX(50);
         valueInputField.setAlignment(Pos.CENTER);
 
         // limit input to numbers & check min/max value
@@ -206,7 +206,6 @@ public class LongitudeControl extends Region {
         valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
         valueArc.getStyleClass().add("valueArc");
         valueArc.setType(ArcType.OPEN);
-
 
 
         // always needed

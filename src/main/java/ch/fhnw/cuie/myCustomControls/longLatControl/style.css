@@ -70,7 +70,7 @@
     -fx-fill: -base-color;
 }
 
-.completeControlLatitude .chooserButton {
+.completeControlLatitude .chooserButton, .completeControlLongitude .chooserButton  {
     -fx-font-family: 'FontAwesome';
     -fx-border-color: transparent;
     -fx-background-color: transparent;

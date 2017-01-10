@@ -132,9 +132,10 @@ public class LatitudeControl extends Region {
         valueInputField = new TextField();
         valueInputField.setText("0.0");
         valueInputField.getStyleClass().add("displayInput");
-        valueInputField.setMaxWidth(150);
+        valueInputField.setPrefWidth(200);
+        valueInputField.setMaxWidth(200);
         valueInputField.setLayoutY(120);
-        valueInputField.setLayoutX(75);
+        valueInputField.setLayoutX(50);
         valueInputField.setAlignment(Pos.CENTER);
 
         // limit input to numbers & check min/max value
