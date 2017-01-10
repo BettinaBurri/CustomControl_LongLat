@@ -1,14 +1,14 @@
 .longitudeControl, .latitudeControl {
     -fx-padding: 10;
     -base-color: rgb(2, 138, 204);
-    -fx-background-color: derive(-base-color, 80%);
+    -fx-background-color: rgb(255, 255, 255);
     -bg-color: rgb(230, 230, 230);
     -highlight-color: rgb(145, 0, 145);
     -base-color-transparency: rgba(2, 138, 204, 50);
 }
 
 .longitudeControl .drawingPane, .latitudeControl .drawingPane {
-    -fx-background-color: rgb(255, 255, 255);;
+    -fx-background-color: rgb(255, 255, 255);
 }
 
 .longitudeControl .displayText, .latitudeControl .displayText {
@@ -67,4 +67,17 @@
 
 .longitudeControl .valueThumb, .latitudeControl .valueThumb{
     -fx-fill: -base-color;
+}
+
+.completeControlLatitude .chooserButton {
+    -fx-font-family: 'FontAwesome';
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-min-width: 26;
+    -fx-min-height: 26;
+    -fx-font-size: 14;
+    //-fx-text-fill: derive(-base-color, -30%);
+    -fx-padding: 5;
+    -fx-content-display: text-only;
+    -fx-cursor: hand;
 }

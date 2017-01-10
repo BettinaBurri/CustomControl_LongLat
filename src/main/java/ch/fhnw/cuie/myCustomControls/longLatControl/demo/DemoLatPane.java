@@ -74,8 +74,8 @@ public class DemoLatPane extends BorderPane {
     private void addBindings() {
         Bindings.bindBidirectional(valueInputField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
         valueSlider.valueProperty().bindBidirectional(customControl.valueProperty());
-
-        colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
+/*
+        colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());*/
     }
 
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){

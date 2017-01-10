@@ -1,6 +1,8 @@
 package ch.fhnw.cuie.myCustomControls.longLatControl.demo;
 
 import ch.fhnw.cuie.myCustomControls.longLatControl.CompleteControlLatitude;
+import ch.fhnw.cuie.myCustomControls.longLatControl.DropDownChooserLatitude;
+import ch.fhnw.cuie.myCustomControls.longLatControlSkin.LongitudeControl;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -13,7 +15,9 @@ public class DemoStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Region rootPanel = new DemoLongPane();
+        //Region rootPanel = new DropDownChooserLatitude();
+        //Region rootPanel = new LongitudeControl();
+        Region rootPanel = new CompleteControlLatitude();
 
         Scene scene = new Scene(rootPanel);
 
