@@ -3,7 +3,7 @@ package ch.fhnw.cuie.myCustomControls.longLatControl;
 import javafx.scene.layout.StackPane;
 
 /**
- * Created by kathrin on 10.01.17.
+ * Created by kathrin & bettina on 10.01.17.
  */
 public class DropDownChooserLongitude extends StackPane {
     private static final String FONTS_CSS = "fonts.css";
@@ -22,7 +22,6 @@ public class DropDownChooserLongitude extends StackPane {
 
     private void initializeSelf(){
         getStyleClass().add("dropDownChooser");
-
         String fonts = getClass().getResource(FONTS_CSS).toExternalForm();
         getStylesheets().add(fonts);
         String stylesheet = getClass().getResource(STYLE_CSS).toExternalForm();

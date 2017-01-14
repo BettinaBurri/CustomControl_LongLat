@@ -3,7 +3,6 @@ package ch.fhnw.cuie.myCustomControls.longLatControl;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point2D;
@@ -16,10 +15,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
 import javafx.util.converter.NumberStringConverter;
 
-import javax.xml.soap.Text;
-
 /**
- * Created by bettina on 09.01.17.
+ * Created by bettina & kathrin on 09.01.17.
  */
 public class CompleteControlLatitude extends StackPane{
 
@@ -28,10 +25,6 @@ public class CompleteControlLatitude extends StackPane{
 
     private static final String ANGLE_DOWN = "\uf107";
     private static final String ANGLE_UP   = "\uf106";
-
-    private static final double ARTBOARD_WIDTH  = 300;
-    private static final double ARTBOARD_HEIGHT = 300;
-
 
     private Double minLatValue = new Double(-90);
     private Double maxLatValue = new Double(90);
@@ -109,8 +102,6 @@ public class CompleteControlLatitude extends StackPane{
         });
     }
     private void setupBindings(){
-        //Bindings.bindBidirectional(dropDownChooser.getLatitudeControl(), latitudeValueProperty());
-        //latitudeValueProperty().bindBidirectional();
         Bindings.bindBidirectional(textField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
     }
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){

@@ -16,7 +16,7 @@ import javafx.stage.Popup;
 import javafx.util.converter.NumberStringConverter;
 
 /**
- * Created by bettina on 09.01.17.
+ * Created by bettina & kathrin on 09.01.17.
  */
 public class CompleteControlLongitude extends StackPane{
 
@@ -25,10 +25,6 @@ public class CompleteControlLongitude extends StackPane{
 
     private static final String ANGLE_DOWN = "\uf107";
     private static final String ANGLE_UP   = "\uf106";
-
-    private static final double ARTBOARD_WIDTH  = 300;
-    private static final double ARTBOARD_HEIGHT = 300;
-
 
     private Double minLongValue = new Double(-180);
     private Double maxLongValue = new Double(180);
@@ -106,8 +102,6 @@ public class CompleteControlLongitude extends StackPane{
         });
     }
     private void setupBindings(){
-        //Bindings.bindBidirectional(dropDownChooser.getLatitudeControl(), latitudeValueProperty());
-        //latitudeValueProperty().bindBidirectional();
         Bindings.bindBidirectional(textField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
     }
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){

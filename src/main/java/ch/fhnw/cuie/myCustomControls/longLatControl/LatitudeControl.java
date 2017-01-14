@@ -1,6 +1,5 @@
 package ch.fhnw.cuie.myCustomControls.longLatControl;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -45,7 +44,7 @@ public class LatitudeControl extends Region {
 
     private static final String FONTS_CSS = "fonts.css";
     private static final String STYLE_CSS = "style.css";
-    private static final String BASE_COLOR = "#ffff66";
+    private static final String BASE_COLOR = "#028acc";
 
     private static final double ARTBOARD_WIDTH  = 300;
     private static final double ARTBOARD_HEIGHT = 300;
@@ -77,10 +76,6 @@ public class LatitudeControl extends Region {
     private final DoubleProperty value    = new SimpleDoubleProperty();
     private DoubleProperty animatedValue  = new SimpleDoubleProperty();
 
-    // Not needed properties ??
-    private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
-    private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
-
     //CSS stylable properties
     private static final CssMetaData<LatitudeControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
@@ -96,21 +91,8 @@ public class LatitudeControl extends Region {
     // all animations
     private final Timeline timeline = new Timeline();
 
-
     // all parts need to be children of the drawingPane
     private Pane drawingPane;
-
-    private final AnimationTimer timer = new AnimationTimer() {
-        private long lastTimerCall;
-
-        @Override
-        public void handle(long now) {
-            if (now > lastTimerCall + (getPulse().toMillis() * 1_000_000L)) {
-                performPeriodicTask();
-                lastTimerCall = now;
-            }
-        }
-    };
 
     public LatitudeControl() {
         initializeSelf();
@@ -126,7 +108,6 @@ public class LatitudeControl extends Region {
         addStyleSheets(this);
         getStyleClass().add(getStyleClassName());
     }
-
 
     private void initializeParts() {
         valueInputField = new TextField();
@@ -166,7 +147,6 @@ public class LatitudeControl extends Region {
         line0 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 0, 125);
         line0.getStyleClass().add("longitudeLine");
 
-
         // Globe Latitude Lines
         horizontalLine1 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2-100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2-100);
         horizontalLine1.getStyleClass().add("latitudeLine");
@@ -187,11 +167,9 @@ public class LatitudeControl extends Region {
         horizontalLine9 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2+100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2+100);
         horizontalLine9.getStyleClass().add("latitudeLine");
 
-
         // Globe value Label
         valueTextBG = new Rectangle(70, 105, 160, 80);
         valueTextBG.getStyleClass().add("valueTextBG");
-
 
         // Arc and Thumb for Value
         valuePath = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, -90, 180);
@@ -203,8 +181,6 @@ public class LatitudeControl extends Region {
         valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
         valueArc.getStyleClass().add("valueArc");
         valueArc.setType(ArcType.OPEN);
-
-
 
         // always needed
         drawingPane = new Pane();
@@ -249,9 +225,7 @@ public class LatitudeControl extends Region {
         animatedValueProperty().addListener((observable, oldValue, newValue) -> {
             Point2D p = pointOnCircle(VALUE_PATH_CENTER.getX(), VALUE_PATH_CENTER.getY(), VALUE_PATH_RADIUS, newValue.doubleValue()+90);
             valueArc.setVisible(true);
-            //valueArc.setLength(getAngle(newValue)+180);
 
-            //valueProperty().setValue(newValue);
             if(newValue.doubleValue() >= minLatValue && newValue.doubleValue() <= maxLatValue){
                 valueArc.setLength(newValue.doubleValue());
                 valueThumb.setCenterX(p.getX());
@@ -259,22 +233,9 @@ public class LatitudeControl extends Region {
             }
         });
 
-        // if you need the timer
-        timerIsRunning.addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                timer.start();
-            } else {
-                timer.stop();
-            }
-        });
-
         // always needed
         widthProperty().addListener((observable, oldValue, newValue) -> resize());
         heightProperty().addListener((observable, oldValue, newValue) -> resize());
-    }
-
-    private void checkBoundaries(Number newValue) {
-        setTimerIsRunning(newValue.doubleValue() > getMaxLatValue() || newValue.doubleValue() < getMinLatValue());
     }
 
     private double getAngle(Number value) {
@@ -293,13 +254,7 @@ public class LatitudeControl extends Region {
         Bindings.bindBidirectional(valueInputField.textProperty(), valueProperty(), new NumberStringConverter());
     }
 
-
-    private void performPeriodicTask() { valueArc.setVisible(!valueArc.isVisible());
-    }
-
-
     // some useful helper-methods
-
     private Text createCenteredText(String styleClass) {
         return createCenteredText(ARTBOARD_WIDTH * 0.5, ARTBOARD_HEIGHT * 0.5, styleClass);
     }
@@ -458,7 +413,6 @@ public class LatitudeControl extends Region {
 
     // getter and setter for all properties
 
-
     public double getValue() {
         return value.get();
     }
@@ -481,30 +435,6 @@ public class LatitudeControl extends Region {
 
     public void setBaseColor(Color baseColor) {
         this.baseColor.set(baseColor);
-    }
-
-    public boolean isTimerIsRunning() {
-        return timerIsRunning.get();
-    }
-
-    public BooleanProperty timerIsRunningProperty() {
-        return timerIsRunning;
-    }
-
-    public void setTimerIsRunning(boolean timerIsRunning) {
-        this.timerIsRunning.set(timerIsRunning);
-    }
-
-    public Duration getPulse() {
-        return pulse.get();
-    }
-
-    public ObjectProperty<Duration> pulseProperty() {
-        return pulse;
-    }
-
-    public void setPulse(Duration pulse) {
-        this.pulse.set(pulse);
     }
 
     public Double getMinLatValue() {
@@ -534,5 +464,4 @@ public class LatitudeControl extends Region {
     public void setAnimatedValue(double animatedValue) {
         this.animatedValue.set(animatedValue);
     }
-
 }

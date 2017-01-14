@@ -2,7 +2,6 @@ package ch.fhnw.cuie.myCustomControls.longLatControl;
 
 import java.util.List;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -49,7 +48,7 @@ public class LongitudeControl extends Region {
 
     private static final String FONTS_CSS = "fonts.css";
     private static final String STYLE_CSS = "style.css";
-    private static final String BASE_COLOR = "#ffff66";
+    private static final String BASE_COLOR = "#028acc";
 
     private static final double ARTBOARD_WIDTH  = 300;
     private static final double ARTBOARD_HEIGHT = 300;
@@ -82,10 +81,6 @@ public class LongitudeControl extends Region {
     private final BooleanProperty animated  = new SimpleBooleanProperty(true);
     private DoubleProperty animatedValue  = new SimpleDoubleProperty();
 
-    // Not needed properties ??
-    private final BooleanProperty          timerIsRunning = new SimpleBooleanProperty(false);
-    private final ObjectProperty<Duration> pulse          = new SimpleObjectProperty<>(Duration.seconds(1.0));
-
     //CSS stylable properties
     private static final CssMetaData<LongitudeControl, Color> BASE_COLOR_META_DATA = FACTORY.createColorCssMetaData("-base-color", s -> s.baseColor);
 
@@ -105,18 +100,6 @@ public class LongitudeControl extends Region {
     // all parts need to be children of the drawingPane
     private Pane drawingPane;
 
-    private final AnimationTimer timer = new AnimationTimer() {
-        private long lastTimerCall;
-
-        @Override
-        public void handle(long now) {
-            if (now > lastTimerCall + (getPulse().toMillis() * 1_000_000L)) {
-                performPeriodicTask();
-                lastTimerCall = now;
-            }
-        }
-    };
-
     public LongitudeControl() {
         initializeSelf();
         initializeParts();
@@ -131,7 +114,6 @@ public class LongitudeControl extends Region {
         addStyleSheets(this);
         getStyleClass().add(getStyleClassName());
     }
-
 
     private void initializeParts() {
         valueInputField = new TextField();
@@ -169,7 +151,6 @@ public class LongitudeControl extends Region {
         line0 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 0, 125);
         line0.getStyleClass().add("longitudeLine");
 
-
         // Globe Latitude Lines
         horizontalLine1 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2-100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2-100);
         horizontalLine1.getStyleClass().add("latitudeLine");
@@ -190,11 +171,9 @@ public class LongitudeControl extends Region {
         horizontalLine9 = new Line(ARTBOARD_WIDTH/2-75, ARTBOARD_HEIGHT/2+100, ARTBOARD_WIDTH/2+75, ARTBOARD_HEIGHT/2+100);
         horizontalLine9.getStyleClass().add("latitudeLine");
 
-
         // Globe value Label
         valueTextBG = new Rectangle(70, 105, 160, 80);
         valueTextBG.getStyleClass().add("valueTextBG");
-
 
         // Arc and Thumb for Value
         valuePath = new Circle(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125);
@@ -206,7 +185,6 @@ public class LongitudeControl extends Region {
         valueArc = new Arc(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 125, 125, 0, 0);
         valueArc.getStyleClass().add("valueArc");
         valueArc.setType(ArcType.OPEN);
-
 
         // always needed
         drawingPane = new Pane();
@@ -254,25 +232,11 @@ public class LongitudeControl extends Region {
             valueArc.setLength(getAngle(newValue)+180);
             valueThumb.setCenterX(p.getX());
             valueThumb.setCenterY(p.getY());
-            //valueProperty().setValue(newValue);
-        });
-
-        // if you need the timer
-        timerIsRunning.addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                timer.start();
-            } else {
-                timer.stop();
-            }
         });
 
         // always needed
         widthProperty().addListener((observable, oldValue, newValue) -> resize());
         heightProperty().addListener((observable, oldValue, newValue) -> resize());
-    }
-
-    private void checkBoundaries(Number newValue) {
-        setTimerIsRunning(newValue.doubleValue() > getMaxLongValue() || newValue.doubleValue() < getMinLongValue());
     }
 
     private double getAngle(Number value) {
@@ -289,11 +253,6 @@ public class LongitudeControl extends Region {
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
         Bindings.bindBidirectional(valueInputField.textProperty(), valueProperty(), new NumberStringConverter());
     }
-
-
-    private void performPeriodicTask() { valueArc.setVisible(!valueArc.isVisible());
-    }
-
 
     // some useful helper-methods
 
@@ -379,7 +338,6 @@ public class LongitudeControl extends Region {
         return className.substring(0, 1).toLowerCase() + className.substring(1);
     }
 
-
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){
         boolean positiveNumber = true;
         if (value.startsWith("-")) {
@@ -413,7 +371,6 @@ public class LongitudeControl extends Region {
     }
 
     // compute sizes
-
     @Override
     protected double computeMinWidth(double height) {
         Insets padding           = getPadding();
@@ -448,7 +405,6 @@ public class LongitudeControl extends Region {
 
     // getter and setter for all properties
 
-
     public double getValue() {
         return value.get();
     }
@@ -471,30 +427,6 @@ public class LongitudeControl extends Region {
 
     public void setBaseColor(Color baseColor) {
         this.baseColor.set(baseColor);
-    }
-
-    public boolean isTimerIsRunning() {
-        return timerIsRunning.get();
-    }
-
-    public BooleanProperty timerIsRunningProperty() {
-        return timerIsRunning;
-    }
-
-    public void setTimerIsRunning(boolean timerIsRunning) {
-        this.timerIsRunning.set(timerIsRunning);
-    }
-
-    public Duration getPulse() {
-        return pulse.get();
-    }
-
-    public ObjectProperty<Duration> pulseProperty() {
-        return pulse;
-    }
-
-    public void setPulse(Duration pulse) {
-        this.pulse.set(pulse);
     }
 
     public Double getMinLongValue() {
@@ -524,5 +456,4 @@ public class LongitudeControl extends Region {
     public void setAnimatedValue(double animatedValue) {
         this.animatedValue.set(animatedValue);
     }
-
 }
