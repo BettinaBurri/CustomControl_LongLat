@@ -103,6 +103,7 @@ public class CompleteControlLatitude extends StackPane{
     }
     private void setupBindings(){
         Bindings.bindBidirectional(textField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
+        latitudeValueProperty().bindBidirectional(customControl.valueProperty());
     }
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){
         boolean positiveNumber = true;

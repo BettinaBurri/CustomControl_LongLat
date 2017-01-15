@@ -15,8 +15,10 @@ public class DemoStarter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Region rootPanel = new CompleteControlLatitude();
-        //Region rootPanel = new CompleteControlLongitude();
+        //Region rootPanel = new CompleteControlLatitude();
+        Region rootPanel = new CompleteControlLongitude();
+        //Region rootPanel = new DemoLatPane();
+        //Region rootPanel = new DemoLongPane();
 
         Scene scene = new Scene(rootPanel);
 

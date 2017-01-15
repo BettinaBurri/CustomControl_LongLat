@@ -252,6 +252,9 @@ public class LatitudeControl extends Region {
     private void setupBindings() {
         display.textProperty().bind(animatedValueProperty().asString(FORMAT));
         Bindings.bindBidirectional(valueInputField.textProperty(), valueProperty(), new NumberStringConverter());
+        //display.textProperty().bindBidirectional(animatedValueProperty().asString(FORMAT));
+        //Bindings.bindBidirectional(display.textProperty(), animatedValueProperty(), new NumberStringConverter());
+
     }
 
     // some useful helper-methods

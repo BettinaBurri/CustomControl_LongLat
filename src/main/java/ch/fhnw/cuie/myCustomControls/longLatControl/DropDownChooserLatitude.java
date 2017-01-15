@@ -36,8 +36,6 @@ public class DropDownChooserLatitude extends StackPane {
     }
 
     private void setupBindings(){
-
-
     }
 
     public LatitudeControl getCustomControl() {

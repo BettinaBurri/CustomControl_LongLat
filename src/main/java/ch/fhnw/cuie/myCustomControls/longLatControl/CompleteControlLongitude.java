@@ -36,7 +36,7 @@ public class CompleteControlLongitude extends StackPane{
     private Button chooserButton;
 
     // Propertys
-    private final DoubleProperty longitudeValue = new SimpleDoubleProperty(40.0);
+    private final DoubleProperty longitudeValue = new SimpleDoubleProperty();
     private LongitudeControl customControl;
 
     public CompleteControlLongitude(){
@@ -103,6 +103,7 @@ public class CompleteControlLongitude extends StackPane{
     }
     private void setupBindings(){
         Bindings.bindBidirectional(textField.textProperty(), customControl.valueProperty(), new NumberStringConverter());
+        longitudeValueProperty().bindBidirectional(customControl.valueProperty());
     }
     private boolean checkNumberRange(String value, Double minValue, Double maxValue){
         boolean positiveNumber = true;
