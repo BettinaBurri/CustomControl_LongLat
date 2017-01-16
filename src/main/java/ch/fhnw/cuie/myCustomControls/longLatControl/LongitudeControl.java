@@ -70,7 +70,8 @@ public class LongitudeControl extends Region {
     private TextField valueInputField;
     private Circle valuePath, valueThumb;
     private Arc valueArc;
-    private Ellipse line0, line1, line2, line3, line4;
+    private Ellipse line1, line2, line3, line4;
+    private Line line0;
     private Line horizontalLine1, horizontalLine2, horizontalLine3, horizontalLine4, horizontalLine5, horizontalLine6, horizontalLine7, horizontalLine8, horizontalLine9;
     private Rectangle valueTextBG;
     private Double minLongValue = new Double(-180);
@@ -148,7 +149,8 @@ public class LongitudeControl extends Region {
         line2.getStyleClass().add("longitudeLine");
         line1 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 25, 125);
         line1.getStyleClass().add("longitudeLine");
-        line0 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 0, 125);
+        //line0 = new Ellipse(ARTBOARD_WIDTH/2, ARTBOARD_WIDTH/2, 0, 125);
+        line0 = new Line(ARTBOARD_WIDTH/2, ARTBOARD_HEIGHT/2-125, ARTBOARD_WIDTH/2, ARTBOARD_HEIGHT/2+125);
         line0.getStyleClass().add("longitudeLine");
 
         // Globe Latitude Lines
